@@ -1,0 +1,11 @@
+.headerStyle{
+    background-color: var(--color-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0rem 7rem;
+}
+
+.logoHeader img{
+    width: 25rem;
+}

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+:root{
+  --color-green: #61A836;
+  --color-yellow: #EEDD17;
+  --color-red: #FF0011;
+  --color-gray: #6C6C6C;
+  --color-grayLight: #C9C9C9;
+  --color-back: #ebebeb;
+  --color-white: #FFFF;
+  --color-black: #0000;
+  --font: 'Lilita One', cursive;
+  --shadow:rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    font-family: var(--font);
+    background-color: var(--color-back);
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    font-size: 16px;
+    margin:0;
+}
+h1,h2,h3,p,a,li,ul{
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+h1{
+  font-size: 3rem;
+}
+h2{
+  font-size: 2.5rem;
+}
+h3{
+  font-size: 2rem;
+}
+p,a{
+  font-size: 1.8rem;
+}

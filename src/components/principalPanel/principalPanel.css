@@ -1,0 +1,6 @@
+.principalPanel{
+    height: 57rem;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow);
+    border-radius: 1rem;
+}
