@@ -1,0 +1,98 @@
+.layoutLogin{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer {
+  background-color: #f8f8f8;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+  border-radius: 2rem;
+  display: block;
+  background-color: var(--color-white);
+  padding: 1rem 5rem 0rem 5rem;
+  border-bottom: 5px solid var(--color-red);
+  width: 60rem;
+}
+
+.inputStyle{
+display: flex;
+flex-direction:column;
+margin-top: 2rem;
+}
+.inputStyle input{
+    width: 100%;
+}
+
+.inputInfo{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.inputInfo label{
+    color: var(--color-red);
+    font-size: 2rem;
+}
+
+.container-password{
+    display: flex;
+    justify-content: center;
+    justify-items: auto;
+    padding-top: 5rem;
+    }
+
+.loginInput{
+    padding: 1.5rem;
+    border: 3px solid #FF0011;
+    border-radius: 1rem;
+    outline: none;
+    font-size: 2rem;
+    font-family: var(--font);
+    color: var(--color-red);
+}
+
+.logginButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    height: 5rem;
+    width: 37rem;
+    border: none;
+    border-radius: 1rem;
+    gap: 1rem;
+    padding: 3rem;
+}
+
+.logginButton p{
+    font-family: 'Lilita One';
+    font-style: normal;
+    font-size: 3rem;
+    
+}
+
+.inputButton{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.access{
+    justify-content: center;
+    background-color: var(--color-red);
+    padding: 2rem ;
+    border-radius: 2rem;
+}

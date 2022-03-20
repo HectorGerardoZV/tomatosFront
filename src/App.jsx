@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Login from "./pages/login/Login"
 
 
 import PanelOrders from "./pages/panelorders/PanelOrders"
@@ -9,6 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Login/>}/>
         <Route path="/cajero" element={<Principal />}>
           <Route path="panelorders" element={<PanelOrders />} />
         </Route>
