@@ -1,13 +1,20 @@
+import { useNavigate } from 'react-router-dom';
 import OrderList from '../../components/panelOrders/OrderList';
 import back from '../../img/back.svg';
 import search from '../../img/search.svg';
 import "./panelOrders.css";
 
 const PanelOrders = () => {
+    let navigate=useNavigate();
+
+    const backTo=()=>{
+        navigate("/cajero")
+    }
+
     return (
         <div>
             <div className="content">
-                <button className="btn-back">
+                <button className="btn-back" onClick={backTo}>
                     <img src={back} alt="volver" /> Volver
                 </button>
 
