@@ -29,6 +29,9 @@ body{
 h1,h2,h3,p,a,li,ul{
   margin: 0;
 }
+button, input {
+  font-family: var(--font);
+}
 a{
   text-decoration: none;
 }
