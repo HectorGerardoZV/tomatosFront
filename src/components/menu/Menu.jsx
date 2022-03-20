@@ -20,7 +20,7 @@ const Menu = () => {
 
             <div className="menuOptions">
                 <div className="option">
-                    <Link to={"/"}>Agregar Orden</Link>
+                    <Link to={"/addOrder"}>Agregar Orden</Link>
                 </div>
                 <div className="option">
                     <Link to={"/"}>Ayuda</Link>

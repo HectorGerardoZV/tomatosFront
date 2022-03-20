@@ -1,0 +1,46 @@
+.container{
+    max-width: 120rem;
+    width: 95%;
+    margin: 0 auto;
+}
+.controls{
+    margin:2rem 0rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories{
+    font-family: var(--font);
+    background-color: var(--color-red);
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 0rem;
+    font-size: 2rem;
+    color: white;
+    outline: none;
+    width: 25rem;
+    text-align: center;
+    cursor: pointer;
+}
+.categories option{
+    background-color: var(--color-white);
+    color: var(--color-red);
+}
+
+.button-cancel{
+    border: none;
+    background-color: var(--color-gray);
+    border-radius: 1rem;
+    font-size: 2rem;
+    color: var(--color-white);
+    width: 20rem;
+    text-align: center;
+    font-family: var(--font);
+    cursor: pointer;
+}
+
+.layout-orderPage{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 3rem;
+}
