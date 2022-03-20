@@ -5,6 +5,7 @@ import Login from "./pages/login/Login"
 import PanelOrders from "./pages/panelorders/PanelOrders"
 import Principal from "./pages/principal/Principal"
 import OrderPage from "./pages/orderPage/OrderPage"
+import OrderStates from "./pages/orderStates/OrderStates"
 function App() {
 
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="/cajero" element={<Principal />}>
+          <Route index element={<OrderStates/>}/>
           <Route path="panelorders" element={<PanelOrders />} />
         </Route>
         <Route path="/addOrder" element={<OrderPage />} />
