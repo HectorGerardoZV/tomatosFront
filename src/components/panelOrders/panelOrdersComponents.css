@@ -1,0 +1,34 @@
+/* Order Style */
+.containter-cards{
+    margin: 2rem;
+}
+.order-card{
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    color: var(--color-gray);
+    border-left: .7rem solid var(--color-yellow)
+}
+
+.li{
+    padding: 1rem 4rem 1rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    list-style:none 
+}
+
+.li img{
+    margin-right: 2rem;
+}
+
+#money{
+    margin-right: 1.5rem;
+}
+
+/*OrderList Style*/
+.order-list{
+    height: 45rem;
+    overflow-y: scroll;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+}
