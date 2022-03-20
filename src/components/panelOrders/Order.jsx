@@ -4,8 +4,8 @@ import moneyYellow from "../../img/moneyYellow.svg";
 import "./panelOrdersComponents.css";
 
 const Order = (props) => {
-  const { order } = props
-
+  const { order } = props;
+  const { client, total, packageProducts } = order;
   return (
     <div className="containter-cards">
 
@@ -13,15 +13,15 @@ const Order = (props) => {
       <div className='order-card'>
         <li className="li">
           <img src={clientYellow} alt="icono cliente" />
-          <p>{order.client}</p>
+          <p>{client}</p>
         </li>
         <li className="li">
           <img src={quantityYelllow} alt="icono productos" />
-          <p>{order.quantity}</p>
+          <p>{packageProducts.length} - Productos</p>
         </li>
         <li className="li">
           <img src={moneyYellow} alt="icono costo" id="money" />
-          <p>{order.cost}</p>
+          <p>${total}</p>
         </li>
       </div>
 

@@ -1,7 +1,7 @@
 import Order from "./Order"
 
 const OrderList = (props) => {
-  const { orders } = props;
+  let { orders } = props;
 
   return (
     <div className="order-list">
