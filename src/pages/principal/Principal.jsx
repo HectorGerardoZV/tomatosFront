@@ -11,7 +11,6 @@ const Principal = () => {
     return (
         <>
             <Header />
-
             <section className="layoutPrincipal container">
                 <Menu />
                 <PrincipalPanel
