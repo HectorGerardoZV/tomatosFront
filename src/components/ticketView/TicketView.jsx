@@ -23,17 +23,18 @@ const TicketView = (props) => {
             setSuccess(false)
 
             navigate("/cajero")
-        }, 1000);
+        }, 1500);
     }
     return (
-        <>
-            {
-                !success ? (
-                    <div className="ticketView"
-                        onClick={toggleScreen}
-                    >
 
-                        <div className="ticketViewPanel">
+        <div className="ticketView"
+            onClick={toggleScreen}
+        >
+            <div className={`ticketViewPanel ${success ? "border-success" : ""}`}>
+
+                {
+                    !success ? (
+                        <>
                             <div className="logoSmall">
                                 <img src={logoSmall} alt="logo tomatos" />
                             </div>
@@ -58,24 +59,22 @@ const TicketView = (props) => {
                                     Finalizar
                                 </button>
                             </div>
-
-                        </div>
-
-                    </div>
-                ) : (
-                    <div className="success">
-                        <div className="successPanel">
-                            <div className="success__img">
-                                <img src={successIMG} alt="" />
+                        </>
+                    ) : (
+                        <div className="message">
+                            <div className="message__icon">
+                                <img src={successIMG} alt="completada" />
                             </div>
-
-                            <p className="message">Orden Agregada</p>
+                            <p className="message__text">Orden Agregada</p>
                         </div>
-                    </div>
-                )
-            }
+                    )
+                }
 
-        </>
+
+            </div>
+
+        </div>
+
     )
 }
 
