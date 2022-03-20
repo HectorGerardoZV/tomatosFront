@@ -8,7 +8,7 @@
     align-items: center;
     gap: 1rem;
     color: var(--color-gray);
-    animation-name: productAnimate;
+    animation-name: productItemAnimate;
     animation-duration: 1s;
 }
 
@@ -36,4 +36,16 @@
 .productItem__controls button{
     border: none;
     background-color: transparent;
+}
+
+@keyframes productItemAnimate {
+    0%{
+        margin-top: -5rem;
+        opacity: 0;
+    }
+
+    100%{
+        margin-top: 0rem;
+        opacity: 1;
+    }
 }
