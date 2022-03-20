@@ -2,7 +2,8 @@
 import "./ticketOrder.css";
 import hamburguesa from "../../img/products/hamburguesa.png";
 import ProductItem from "../productItem/ProductItem";
-const TicketOrder = () => {
+const TicketOrder = (props) => {
+    const {screen, setScreen} = props;
     const listProducts = [
         { id: 1, name: "Hamburguesa", quantity: 3, image: hamburguesa },
         { id: 2, name: "Hamburguesa", quantity: 3, image: hamburguesa },
@@ -11,6 +12,10 @@ const TicketOrder = () => {
         { id: 5, name: "Hamburguesa", quantity: 3, image: hamburguesa },
         { id: 6, name: "Hamburguesa", quantity: 3, image: hamburguesa }
     ]
+
+    const toggleScreen = ()=>{
+        setScreen(!screen)
+    }
     return (
         <div className="ticketOrder">
             <input className="input-client" type="text" placeholder="Nombre del cliente" />
@@ -28,7 +33,7 @@ const TicketOrder = () => {
             <div className="line"></div>
             <p className="totalTicket">Total: <span> $345</span></p>
 
-            <button className="addOrderButton">Agregar Orden</button>
+            <button className="addOrderButton" onClick={toggleScreen}>Agregar Orden</button>
         </div>
     )
 }

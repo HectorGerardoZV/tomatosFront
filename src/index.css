@@ -8,6 +8,8 @@
   --color-back: #ebebeb;
   --color-white: #FFFF;
   --color-black: #0000;
+  --color-screen-back: rgba(0, 0, 0, 0.5);
+  --color-input-screen: #ECECEC;
   --font: 'Lilita One', cursive;
   --shadow:rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }

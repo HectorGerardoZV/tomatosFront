@@ -12,7 +12,7 @@ const Principal = () => {
         <>
             <Header />
 
-            <section className="layoutPrincipal container">
+            <section className=" container layoutPrincipal">
                 <Menu />
                 <PrincipalPanel
                     Page={Outlet}

@@ -1,4 +1,4 @@
-.container{
+.containerOrderPage{
     max-width: 120rem;
     width: 95%;
     margin: 0 auto;
@@ -43,4 +43,8 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 3rem;
+}
+
+.screen{
+    position: relative;
 }
