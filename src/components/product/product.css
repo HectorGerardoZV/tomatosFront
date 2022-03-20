@@ -34,10 +34,12 @@
 /*Animations*/
 @keyframes productAnimate {
     0%{
+        margin-top: -5rem;
         opacity: 0;
     }
 
     100%{
+        margin-top: 0rem;
         opacity: 1;
     }
 }

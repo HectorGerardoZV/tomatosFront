@@ -8,6 +8,8 @@
     align-items: center;
     gap: 1rem;
     color: var(--color-gray);
+    animation-name: productAnimate;
+    animation-duration: 1s;
 }
 
 .productItem__image{

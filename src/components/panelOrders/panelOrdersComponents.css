@@ -6,7 +6,9 @@
     border-radius: 1rem;
     box-shadow: var(--shadow);
     color: var(--color-gray);
-    border-left: .7rem solid var(--color-yellow)
+    border-left: .7rem solid var(--color-yellow);
+    animation-name: orderAnimate;
+    animation-duration: .5s;
 }
 
 .li{
@@ -31,4 +33,19 @@
     overflow-y: scroll;
     display:grid;
     grid-template-columns: repeat(3,1fr);
+}
+
+
+
+/*Animations*/
+@keyframes orderAnimate {
+    0%{
+        margin-top: -5rem;
+        opacity: 0;
+    }
+
+    100%{
+        margin-top: 0rem;
+        opacity: 1;
+    }
 }
