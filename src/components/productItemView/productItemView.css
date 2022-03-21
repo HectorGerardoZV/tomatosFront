@@ -1,0 +1,19 @@
+.orderProductCard{
+    max-width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    box-shadow: var(--shadow);
+    border-radius: 1rem;
+    padding: .5rem;
+}
+
+.productCard img{
+    width: 10rem;
+}
+.productCardCost{
+    color: var(--color-green);
+}
+.productCardQuantity{
+    color: var(--color-gray);
+}

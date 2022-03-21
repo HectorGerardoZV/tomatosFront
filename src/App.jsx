@@ -6,6 +6,8 @@ import PanelOrders from "./pages/panelorders/PanelOrders"
 import Principal from "./pages/principal/Principal"
 import OrderPage from "./pages/orderPage/OrderPage"
 import OrderStates from "./pages/orderStates/OrderStates"
+import ViewOrder from "./pages/viewOrder/ViewOrder"
+
 function App() {
 
   return (
@@ -18,6 +20,7 @@ function App() {
         </Route>
         <Route path="/addOrder" element={<OrderPage />} />
         <Route path="/editOrder/:id" element={<OrderPage />} />
+        <Route path="/viewOrder" element={<ViewOrder/>}/>
 
       </Routes>
     </Router >
