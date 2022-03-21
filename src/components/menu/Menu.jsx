@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import { useContext } from "react"
+import panelOrderContext from "../../context/PanelOrderContext";
 
 //Style
 import "./menu.css"
@@ -8,6 +9,10 @@ import logoSmall from "../../img/logoSmall.svg";
 import logOut from "../../img/logOut.svg";
 
 const Menu = () => {
+    const panelOrdersCT = useContext(panelOrderContext)
+    const { order } = panelOrdersCT;
+
+
     return (
         <div className="menu">
             <div className="logoMenu">
@@ -22,6 +27,13 @@ const Menu = () => {
                 <div className="option">
                     <Link to={"/addOrder"}>Agregar Orden</Link>
                 </div>
+                {
+                    order ? (
+                        <div className="option">
+                            <Link to={`/viewOrder`}>Ver Orden</Link>
+                        </div>
+                    ) : null
+                }
                 <div className="option">
                     <Link to={"/"}>Ayuda</Link>
                 </div>

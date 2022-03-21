@@ -1,6 +1,23 @@
 import "./informationTicket.css"
 
-const IntormationTicket = () => {
+const IntormationTicket = (props) => {
+    const { order } = props;
+    const { client, date, total, state } = order
+    const dateOrder = new Date(date)
+    const dateStringOrder = dateOrder.getDate() + "/" + (dateOrder.getMonth() + 1) + "/" + dateOrder.getFullYear()
+    let stateSpanish = "";
+    let classState = "";
+    if (state == "Pending") {
+        stateSpanish = "Pendiente"
+        classState = "statePendingClass"
+    } else if (state == "Completed") {
+        stateSpanish = "Completada"
+        classState = "stateCompletedClass"
+    } else if (state == "Canceled") {
+        stateSpanish = "Cancelada"
+        classState = "stateCanceledClass"
+    }
+
     return (
 
         <div className="informationTicketContainer ">
@@ -9,7 +26,7 @@ const IntormationTicket = () => {
 
                     <div className="single-column">
                         <div className="columnaIzquierda">
-                            <p>Cliente: Diana Medina</p>
+                            <p>Cliente: {client}</p>
                         </div>
                     </div>
                     <div className="separator-ticket"></div>
@@ -17,27 +34,22 @@ const IntormationTicket = () => {
                     <div className="columnas-internas">
                         <div className="columnaIzquierda">
                             <p>Total:</p>
-                            <p>Pago Con:</p>
-                            <p>Cambio:</p>
+
                         </div>
 
                         <div className="columnaDerecha greenP">
-                            <p>$645</p>
-                            <p>$700</p>
-                            <p>$35</p>
+                            <p>${total}</p>
+
                         </div>
 
                     </div>
-                    <div className="separator-ticket"></div>
 
                     <div className="columnas-internas">
                         <div className="columnaIzquierda">
                             <p>Fecha:</p>
-                            <p>Hora:</p>
                         </div>
                         <div className="columnaDerecha ">
-                            <p>29/01/2022</p>
-                            <p>20:30 pm</p>
+                            <p>{dateStringOrder}</p>
                         </div>
 
                     </div>
@@ -47,11 +59,11 @@ const IntormationTicket = () => {
                         <div className="columnaIzquierda">
                             <p>Estado:</p>
                         </div>
-                        <div className="columnaDerecha yellowP">
-                            <p>Pendiente</p>
+                        <div className={`columnaDerecha ${classState}`}>
+                            <p>{stateSpanish}</p>
                         </div>
                     </div>
-                    
+
                 </div>
 
 

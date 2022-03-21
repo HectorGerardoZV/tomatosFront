@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 
 
+
 //components
 import axiosClient from "../../config/axiosClient";
 import OrderList from '../../components/panelOrders/OrderList';
@@ -14,12 +15,13 @@ import search from '../../img/search.svg';
 import "./panelOrders.css";
 import StateScreen from "../../components/stateScreen/StateScreen";
 
-const PanelOrders = () => {
+const PanelOrders = (props) => {
     let navigate = useNavigate();
     let { state } = useParams();
 
     const [orders, setOrders] = useState([]);
     const [orderSelected, setOrder] = useState(null);
+    const [orderAction, setOrderAction] = useState(null);
 
 
     const queryOrdersByState = async () => {
@@ -70,6 +72,7 @@ const PanelOrders = () => {
                             orders={orders}
                             setOrder={setOrder}
                             state={state}
+                            setOrderAction={setOrderAction}
                         />
                     </div>
                 </div>

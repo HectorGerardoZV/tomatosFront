@@ -41,3 +41,13 @@
 .greenP{
     color: var(--color-green);
 }
+
+.statePendingClass p{
+    color: var(--colot-yellow);
+}
+.stateCompletedClass p {
+    color: var(--colot-green);
+}
+.stateCanceledClass p{
+    color: var(--colot-red);
+}

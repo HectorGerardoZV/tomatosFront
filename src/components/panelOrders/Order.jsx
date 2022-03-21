@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import panelOrderContext from "../../context/PanelOrderContext";
 
 //images and icons
 import clientYellow from "../../img/clientYellow.svg";
@@ -17,7 +19,12 @@ import "./panelOrdersComponents.css";
 
 const Order = (props) => {
   const { order, setOrder, state } = props;
-  const { client, total, packageProducts } = order;
+
+  const panelOrdersCT = useContext(panelOrderContext)
+  const {setOrderEdit,deleteOrderEdit} = panelOrdersCT
+
+
+  const { client, total, packageProducts,setOrderAction } = order;
   let borderStyle = "";
   let clientIcon = null;
   let quantityIcon = null;
@@ -43,9 +50,13 @@ const Order = (props) => {
   const selectProduct = () => {
     setOrder(order)
   }
+  const selectOrderAction = () => {
+    setOrderEdit(order)
+  }
   return (
     <div className="containter-cards"
-      onClick={selectProduct}
+      onDoubleClick={selectProduct}
+      onClick={selectOrderAction}
     >
       <div className={`order-card ${borderStyle}`}>
         <li className="li">

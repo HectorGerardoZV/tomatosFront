@@ -2,8 +2,7 @@
 import Order from "./Order"
 
 const OrderList = (props) => {
-  let { orders,setOrder,state } = props;
-
+  let { orders,setOrder,state,setOrderAction } = props;
   return (
     <div className="order-list">
       {
@@ -13,6 +12,7 @@ const OrderList = (props) => {
             order={order}
             setOrder={setOrder}
             state={state}
+            setOrderAction={setOrderAction}
           />
         ))
       }

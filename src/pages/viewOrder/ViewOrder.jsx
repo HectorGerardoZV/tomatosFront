@@ -1,4 +1,7 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import panelOrderContext from "../../context/PanelOrderContext";
+
 import HeaderGeneric from "../../components/headerGeneric/HeaderGeneric";
 import "./viewOrder.css";
 import back from "../../img/back.svg";
@@ -7,63 +10,34 @@ import InformationTicket from "../../components/informationTicket/IntormationTic
 import hamburguesa from "../../img/products/hamburguesa.png";
 
 const SeeOrders = () => {
-  const products = [
-    {
-      id: "1",
-      name: "Hamburguesa",
-      cost: "$45",
-      quantity: "3",
-      img: hamburguesa
-    },
-    {
-      id: "2",
-      name: "Hamburguesa",
-      cost: "$45",
-      quantity: "3",
-      img: hamburguesa
-    },
-    {
-      id: "3",
-      name: "Hamburguesa",
-      cost: "$45",
-      quantity: "3",
-      img: hamburguesa
-    },
-    {
-      id: "4",
-      name: "Hamburguesa",
-      cost: "$45",
-      quantity: "3",
-      img: hamburguesa
-    },
-    {
-      id: "5",
-      name: "Hamburguesa",
-      cost: "$45",
-      quantity: "3",
-      img: hamburguesa
-    },
-    {
-      id: "6",
-      name: "Hamburguesa",
-      cost: "$45",
-      quantity: "3",
-      img: hamburguesa
-    },
-    {
-      id: "7",
-      name: "Hamburguesa",
-      cost: "$45",
-      quantity: "3",
-      img: hamburguesa
+  let navigate = useNavigate()
+  const panelOrderCT = useContext(panelOrderContext)
+  const { order, deleteOrderEdit } = panelOrderCT
+  
+  const packagesOrder = (order.packageProducts);
+  const products = packagesOrder.map(packageItem=>{
+    const packageReturn ={
+      img: hamburguesa,
+      id:packageItem.id,
+      quantity: packageItem.quantity,
+      salePrice: (packageItem.total/packageItem.quantity),
+      name: "Product"
     }
-  ]
+    return packageReturn
+  })
+
+  const backTo = () => {
+    deleteOrderEdit()
+    navigate(`/cajero/panelorders/${order.state}`)
+  }
   return (
     <>
       <HeaderGeneric />
       <div className="layoutViewOrder">
         <div className="viewOrderContent">
-          <button className="btn-back">
+          <button className="btn-back"
+            onClick={backTo}
+          >
             <img src={back} alt="volver" /> Volver
           </button>
 
@@ -85,7 +59,9 @@ const SeeOrders = () => {
             <div className="informationOrderView">
               <h2>Informacion</h2>
               <div className="separator"></div>
-              <InformationTicket />
+              <InformationTicket 
+              order={order}
+              />
             </div>
           </div>
         </div>

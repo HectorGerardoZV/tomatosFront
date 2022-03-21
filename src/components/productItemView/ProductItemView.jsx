@@ -10,7 +10,7 @@ const ViewOrderProduct = (props) => {
         <p className="productCardName">{product.name}</p>
       </div>
 
-      <p className="productCardCost">{product.cost}</p>
+      <p className="productCardCost">{product.salePrice}</p>
       <p className="productCardQuantity">{product.quantity}</p>
     </div>
   );

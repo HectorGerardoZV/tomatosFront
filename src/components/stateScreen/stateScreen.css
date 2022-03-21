@@ -20,6 +20,9 @@
     text-align: center;
     color: var(--color-gray);
 }
+.stateScreen__card h2{
+    color: var(--color-gray);
+}
 
 .stateActios{
     margin-top: 3rem;
