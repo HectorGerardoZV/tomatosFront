@@ -6,11 +6,12 @@ import panelOrderReducer from "./panelOrderReducer";
 
 const PanelOrderState = (props) => {
     const initialState = {
-        order:null
+        order:JSON.parse(localStorage.getItem("order"))
     }
     const [state,dispatch] = useReducer(panelOrderReducer,initialState);
 
     const setOrderEdit = (order)=>{
+        localStorage.setItem("order",JSON.stringify(order))
         dispatch({
             type:SET_ORDER_ACTION,
             payload: order

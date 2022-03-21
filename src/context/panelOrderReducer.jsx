@@ -7,6 +7,7 @@ export default (state, action)=>{
                 order:action.payload
             }
         case DELETE_ORDER_ACTION:
+            localStorage.setItem("order",null)
             return {
                 ...state,
                 order:null
