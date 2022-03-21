@@ -1,3 +1,6 @@
+h2{
+    color: var(--color-red);
+}
 .layoutViewOrder{
     max-width: 75rem;
     width: 90%;
@@ -35,4 +38,10 @@
     flex-direction: column;
     gap: 1rem;
     padding-top: 1rem;
+    height: 42rem;
+    overflow-y: scroll;
+}
+.single-column{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }

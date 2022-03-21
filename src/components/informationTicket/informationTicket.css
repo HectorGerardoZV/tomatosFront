@@ -1,5 +1,43 @@
 .informationTicketContainer{
+    color: var(--color-gray);
+    text-align: left;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+}
+.infoTicketColumnas{
+    display: grid;
+    grid-template-columns: repeat(1fr);
+}
+.columnas-internas{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    
+}
+
+.ticketInfoCont{
+    width: 80%;
+}
+
+.separator-ticket{
+    width: 100%;
+    margin: 0 auto;
+    height: 2px;
+    background-color: var(--color-red);
+    border-radius: 5px;
+}
+
+.columnaDerecha{
+    text-align: right;
+}
+
+.yellowP{
+    color: var(--color-yellow);
+}
+
+.greenP{
+    color: var(--color-green);
 }
