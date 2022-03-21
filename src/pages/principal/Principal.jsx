@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-
+import { useState } from "react"
 //Components
 import Header from "../../components/header/Header"
 import Menu from "../../components/menu/Menu"
@@ -9,14 +9,15 @@ import "./principal.css"
 const Principal = () => {
     return (
         <>
-            <Header />
-            <section className=" container layoutPrincipal">
-                <Menu />
-                <PrincipalPanel
-                    Page={Outlet}
-                />
-            </section>
-
+            <div>
+                <Header />
+                <section className=" container layoutPrincipal">
+                    <Menu />
+                    <PrincipalPanel
+                        Page={Outlet}
+                    />
+                </section>
+            </div>
         </>
     )
 }

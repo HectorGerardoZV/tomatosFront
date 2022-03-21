@@ -6,7 +6,7 @@
     border-radius: 1rem;
     box-shadow: var(--shadow);
     color: var(--color-gray);
-    border-left: .7rem solid var(--color-yellow);
+   
     animation-name: orderAnimate;
     animation-duration: .5s;
 }
@@ -35,6 +35,17 @@
     grid-template-columns: repeat(3,1fr);
 }
 
+.orderPendingBorder{
+    border-left: .7rem solid var(--color-yellow);
+}
+
+.orderCompletedBorder{
+    border-left: .7rem solid var(--color-green);
+}
+
+.orderCanceledBorder{
+    border-left: .7rem solid var(--color-red);
+}
 
 
 /*Animations*/

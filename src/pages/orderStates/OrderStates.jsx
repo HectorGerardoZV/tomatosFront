@@ -1,9 +1,12 @@
 
 import { useNavigate } from "react-router-dom"
+
+//images and icos
 import iconPending from "../../img/pending.svg"
 import iconComplete from "../../img/completed.svg"
 import iconCanceled from "../../img/canceled.svg"
 
+//Style
 import "./orderStates.css"
 
 

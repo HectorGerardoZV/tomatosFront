@@ -5,7 +5,7 @@ const PrincipalPanel = (props) => {
     const { Page } = props;
     return (
         <section className="principalPanel">
-            <Page />
+            <Page/>
         </section>
     )
 }

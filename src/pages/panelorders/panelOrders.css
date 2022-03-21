@@ -2,7 +2,7 @@
 .content{
     display: flex;
    justify-content: space-between;
-   padding: 2rem;
+   padding: 2rem ;
     
 }
 
@@ -51,3 +51,7 @@
 }
 
 
+.stateScreen{
+    position: relative;
+    height: 100%;
+}

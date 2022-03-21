@@ -1,7 +1,8 @@
+//Components
 import Order from "./Order"
 
 const OrderList = (props) => {
-  let { orders } = props;
+  let { orders,setOrder,state } = props;
 
   return (
     <div className="order-list">
@@ -10,6 +11,8 @@ const OrderList = (props) => {
           <Order
             key={order.id}
             order={order}
+            setOrder={setOrder}
+            state={state}
           />
         ))
       }

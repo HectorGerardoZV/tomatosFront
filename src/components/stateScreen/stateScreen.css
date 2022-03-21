@@ -1,0 +1,47 @@
+.stateScreenCard{
+    position: absolute;
+    background-color: var(--color-screen-back);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.stateScreen__card{
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    width: 50rem;
+    height: 17rem;
+    text-align: center;
+    color: var(--color-gray);
+}
+
+.stateActios{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.changeState{
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 13rem;
+    font-size: 2rem;
+    color: var(--color-white);
+}
+
+.pendingState{
+    background-color: var(--color-yellow);
+}
+.completedState{
+    background-color: var(--color-green);
+}
+.canceledState{
+    background-color: var(--color-red);
+}
