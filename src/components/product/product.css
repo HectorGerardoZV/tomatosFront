@@ -10,9 +10,11 @@
 
     animation-name: productAnimate;
     animation-duration: .5s;
+    height: 20rem;
     
 }
 .product__img{
+    width: 15rem;
     filter: drop-shadow(0.35rem 0.35rem 0.35rem rgba(0, 0, 0, 0.589));
 }
 .product__name{
