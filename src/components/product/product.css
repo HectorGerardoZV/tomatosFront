@@ -13,12 +13,7 @@
     
 }
 .product__img{
-
     filter: drop-shadow(0.35rem 0.35rem 0.35rem rgba(0, 0, 0, 0.589));
-
-        
-    animation-name: productAnimate;
-    animation-duration: 1s;
 }
 .product__name{
     color: var(--color-gray);
@@ -34,7 +29,7 @@
 /*Animations*/
 @keyframes productAnimate {
     0%{
-        margin-top: -5rem;
+        margin-top: -2rem;
         opacity: 0;
     }
 

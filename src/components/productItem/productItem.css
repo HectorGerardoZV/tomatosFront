@@ -9,7 +9,7 @@
     gap: 1rem;
     color: var(--color-gray);
     animation-name: productItemAnimate;
-    animation-duration: 1s;
+    animation-duration: .5s;
 }
 
 .productItem__image{
@@ -40,7 +40,7 @@
 
 @keyframes productItemAnimate {
     0%{
-        margin-top: -5rem;
+        margin-top: -2rem;
         opacity: 0;
     }
 
