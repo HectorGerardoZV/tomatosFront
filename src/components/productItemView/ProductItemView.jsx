@@ -1,19 +1,17 @@
-import "./ProductItemView";
-
-import burguer from "../../img/products/hamburguesa.png";
-
 import "./productItemView.css"
 
-const ViewOrderProduct = () => {
+const ViewOrderProduct = (props) => {
+  const {product} =props
+
   return (
     <div className="orderProductCard">
       <div className="productCard">
-        <img src={burguer} alt="imagen hamburguesa" />
-        <p className="productCardName">Hamburguesa</p>
+        <img src={product.img} alt="imagen hamburguesa" />
+        <p className="productCardName">{product.name}</p>
       </div>
 
-      <p className="productCardCost">$45</p>
-      <p className="productCardQuantity">2</p>
+      <p className="productCardCost">{product.cost}</p>
+      <p className="productCardQuantity">{product.quantity}</p>
     </div>
   );
 };
