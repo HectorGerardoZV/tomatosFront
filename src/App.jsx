@@ -20,7 +20,7 @@ function App() {
         </Route>
         <Route path="/addOrder" element={<OrderPage />} />
         <Route path="/editOrder/:id" element={<OrderPage />} />
-        <Route path="/viewOrder" element={<ViewOrder/>}/>
+        <Route path="/viewOrder/:id" element={<ViewOrder/>}/>
 
       </Routes>
     </Router >
