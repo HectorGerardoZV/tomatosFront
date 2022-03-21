@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-
 //Components
 import HeaderGeneric from "../../components/headerGeneric/HeaderGeneric"
 import ProductPanel from "../../components/productPanel/ProductPanel"

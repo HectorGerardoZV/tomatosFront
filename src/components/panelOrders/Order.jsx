@@ -21,10 +21,10 @@ const Order = (props) => {
   const { order, setOrder, state } = props;
 
   const panelOrdersCT = useContext(panelOrderContext)
-  const {setOrderEdit,deleteOrderEdit} = panelOrdersCT
+  const { setOrderEdit, deleteOrderEdit } = panelOrdersCT
 
 
-  const { client, total, packageProducts,setOrderAction } = order;
+  const { client, total, packageProducts, setOrderAction } = order;
   let borderStyle = "";
   let clientIcon = null;
   let quantityIcon = null;
@@ -49,6 +49,7 @@ const Order = (props) => {
 
   const selectProduct = () => {
     setOrder(order)
+    deleteOrderEdit()
   }
   const selectOrderAction = () => {
     setOrderEdit(order)

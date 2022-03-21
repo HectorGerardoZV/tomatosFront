@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 
-
-
 //components
 import axiosClient from "../../config/axiosClient";
 import OrderList from '../../components/panelOrders/OrderList';

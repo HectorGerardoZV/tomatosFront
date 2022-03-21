@@ -32,6 +32,7 @@ const Menu = () => {
                         <div className="option">
                             <Link to={`/viewOrder`}>Ver Orden</Link>
                         </div>
+
                     ) : null
                 }
                 <div className="option">

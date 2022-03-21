@@ -24,7 +24,7 @@ function App() {
             <Route path="panelorders/:state" element={<PanelOrders />} />
           </Route>
           <Route path="/addOrder" element={<OrderPage />} />
-          <Route path="/editOrder/:id" element={<OrderPage />} />
+          {/* <Route path="/editOrder" element={<OrderPage />} /> */}
           <Route path="/viewOrder" element={<ViewOrder />} />
 
         </Routes>
