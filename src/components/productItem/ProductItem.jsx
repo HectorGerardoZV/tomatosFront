@@ -7,6 +7,7 @@ const ProductItem = (props) => {
     const { quantity } = packageItem;
     const { name, image } = packageItem.product;
     const plusQuantity = () => {
+
         packageItem.quantity += 1
         addQuantityPackage(packageItem)
     }

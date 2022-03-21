@@ -10,6 +10,7 @@
     color: var(--color-gray);
     animation-name: productItemAnimate;
     animation-duration: .5s;
+    text-align: center;
 }
 
 .productItem__image{

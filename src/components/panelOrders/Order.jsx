@@ -1,5 +1,4 @@
 
-
 //images and icons
 import clientYellow from "../../img/clientYellow.svg";
 import quantityYelllow from "../../img/quantityYelllow.svg";
@@ -23,7 +22,6 @@ const Order = (props) => {
   let clientIcon = null;
   let quantityIcon = null;
   let moneyIcon = null;
-  console.log(state);
   if (state == "Pending") {
     borderStyle = "orderPendingBorder"
 

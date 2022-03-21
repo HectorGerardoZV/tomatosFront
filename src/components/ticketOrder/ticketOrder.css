@@ -12,6 +12,8 @@
     border-bottom: 3px solid var(--color-red);
     padding: .2rem 0rem;
     outline: none;
+    font-size: 2rem;
+    color: var(--color-gray);
 }
 
 
@@ -52,4 +54,33 @@
     color: var(--color-white);
     font-family: var(--font);
     border-radius: 1rem;
+    
+    animation-name: buttonEnabledAnimate;
+    animation-duration: .5s;
+}
+
+.buttonDesibled{
+    background-color: var(--color-gray);
+    cursor: default;
+
+    animation-name: buttonDesibledAnimate;
+    animation-duration: .5s;
+}
+
+@keyframes buttonDesibledAnimate {
+    0%{
+        background-color: var(--color-red);
+    }
+    100%{
+        background-color: var(--color-gray);
+    }
+}
+
+@keyframes buttonEnabledAnimate {
+    0%{
+        background-color: var(--color-gray);
+    }
+    100%{
+        background-color: var(--color-red);
+    }
 }

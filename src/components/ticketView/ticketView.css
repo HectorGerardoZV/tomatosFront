@@ -55,7 +55,11 @@
     text-align: end;
     font-family: var(--font);
 }
-
+.resume input[type=number]::-webkit-inner-spin-button, 
+.resume input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 .buttonTicket{
     display: flex;
     justify-content: center;
@@ -84,12 +88,16 @@
 .message__icon img{
     width: 20rem;
     margin-top: 2rem;
+    animation-name: iconSuccessAnimate;
+    animation-duration: .7s;
 }
 
 .message__text{
     font-size: 4rem;
     margin-top: 3rem;
     color: var(--color-green);
+    animation-name: iconSuccessAnimate;
+    animation-duration: .7s;
 }
 
 .border-success{
@@ -104,6 +112,15 @@
 
     100%{
         margin-top: 0rem;
+        opacity: 1;
+    }
+}
+@keyframes iconSuccessAnimate {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
         opacity: 1;
     }
 }

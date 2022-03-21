@@ -1,30 +1,66 @@
 import { useState } from "react";
-import "./ticketView.css"
+
+//images and icons
 import logoSmall from "../../img/logoSmall.svg";
 import successIMG from "../../img/success.svg";
-import { useNavigate } from "react-router-dom";
+
+//Style
+import "./ticketView.css"
+
 
 const TicketView = (props) => {
-    let navigate = useNavigate();
-    const { screen, setScreen } = props
+    const { screen, setScreen, packagesProduct, clientName, finishOrder,success} = props
+    const [cambio, setCambio] = useState(0);
+    const [activeFinished, setActive] = useState(false);
 
-    const [success, setSuccess] = useState(false);
-
+    let total = 0;
+    packagesProduct.forEach(packageProduct => {
+        const { quantity, product } = packageProduct;
+        const { salePrice } = product;
+        total += (salePrice * quantity)
+    });
     const toggleScreen = (e) => {
         const label = e.target;
         if (label.classList.contains("ticketView")) {
             setScreen(!screen)
         }
     }
-    const finishOrder = () => {
-        setSuccess(!success)
-        setTimeout(() => {
-            setScreen(false)
-            setSuccess(false)
-
-            navigate("/cajero")
-        }, 1500);
+    const readPayment = (e) => {
+        const tag = e.target;
+        const money = tag.value
+        if (money >= total) {
+            setCambio(money - total)
+            setActive(true)
+        } else {
+            setCambio("Falta")
+            setActive(false)
+        }
     }
+    const sendOrderFinish = () => {
+        let packagesCopy = [...packagesProduct]
+        packagesCopy = packagesCopy.map(packageAux => {
+            const packageFinal = {
+                product: packageAux.productId,
+                quantity: packageAux.quantity,
+                details: "",
+                total: (packageAux.quantity * packageAux.product.salePrice)
+            }
+            return packageFinal
+        })
+        const orderFinished = [
+            {
+                user: 2,
+                client: clientName,
+                total
+            },
+            packagesCopy
+        ]
+        if (activeFinished) {
+            finishOrder(orderFinished)
+        }
+    }
+
+
     return (
 
         <div className="ticketView"
@@ -41,20 +77,22 @@ const TicketView = (props) => {
 
                             <div className="resume">
                                 <label htmlFor="">Total a pagar</label>
-                                <input disabled type="text" />
+                                <input disabled type="text" value={total} />
                             </div>
                             <div className="resume">
                                 <label htmlFor="">Paga con</label>
-                                <input type="text" />
+                                <input type="number"
+                                    onInput={readPayment}
+                                />
                             </div>
                             <div className="resume">
                                 <label htmlFor="">Cambio</label>
-                                <input disabled type="text" />
+                                <input disabled type="text" value={cambio} />
                             </div>
 
                             <div className="buttonTicket">
                                 <button
-                                    onClick={finishOrder}
+                                    onClick={sendOrderFinish}
                                 >
                                     Finalizar
                                 </button>
