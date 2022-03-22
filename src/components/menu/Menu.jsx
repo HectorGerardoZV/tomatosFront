@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react"
-import panelOrderContext from "../../context/PanelOrderContext";
+import panelOrderContext from "../../context/panelOrder/panelOrderContext";
 
 //Style
 import "./menu.css"

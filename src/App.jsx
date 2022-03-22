@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Login from "./pages/login/Login"
 
 //Context
-import PanelOrderState from "./context/PanelOrderState"
+import PanelOrderState from "./context/panelOrder/PanelOrderState"
 
 
 //Pages
+import Login from "./pages/login/Login"
 import PanelOrders from "./pages/panelorders/PanelOrders"
 import Principal from "./pages/principal/Principal"
 import OrderPage from "./pages/orderPage/OrderPage"

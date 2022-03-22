@@ -1,6 +1,3 @@
-import { useState } from "react";
-
-
 import "./ticketOrder.css";
 import ProductItem from "../productItem/ProductItem";
 const TicketOrder = (props) => {

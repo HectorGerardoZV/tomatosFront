@@ -1,5 +1,3 @@
-
-
 import { Outlet, useParams } from "react-router-dom"
 //Components
 import Header from "../../components/header/Header"

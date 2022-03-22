@@ -1,7 +1,7 @@
 import { useReducer } from "react";
-import {SET_ORDER_ACTION,DELETE_ORDER_ACTION} from "../types/Types.js";
+import {SET_ORDER_ACTION,DELETE_ORDER_ACTION} from "../../types/Types.js";
 
-import panelOrderContext from "./PanelOrderContext.jsx";
+import panelOrderContext from "./panelOrderContext";
 import panelOrderReducer from "./panelOrderReducer";
 
 const PanelOrderState = (props) => {

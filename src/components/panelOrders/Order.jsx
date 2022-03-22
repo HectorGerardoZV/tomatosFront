@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import panelOrderContext from "../../context/PanelOrderContext";
+import panelOrderContext from "../../context/panelOrder/panelOrderContext";
 
 //images and icons
 import clientYellow from "../../img/clientYellow.svg";
