@@ -12,6 +12,7 @@ import axiosClient from "../../config/axiosClient";
 import ModalProduct from "../../components/modalProduct/ModalProduct"
 //Style
 import "./orderPage.css"
+import ModalOrder from "../../components/modalOrder/ModalOrder"
 const customStyles = {
   content: {
     top: '50%',
@@ -29,7 +30,7 @@ Modal.setAppElement('#root');
 
 const OrderPage = () => {
   let navigate = useNavigate();
-  const {modalIsOpen} =useOrder();
+  const {modalProduct,modalOrder} =useOrder();
 
   //State
   const [screen, setScreen] = useState(false);
@@ -161,39 +162,28 @@ const OrderPage = () => {
             <section className="layout-orderPage">
               <ProductPanel
                 products={productsCategory}
-                addProductToList={addProductToList}
               />
               <TicketOrder
                 screen={screen}
                 setScreen={setScreen}
-                packagesProduct={packagesProduct}
-                addQuantityPackage={addQuantityPackage}
-                remuvePackage={remuvePackage}
-                setTotal={setTotal}
-                total={setTotal}
-                setClientName={setClientName}
-                clientName={clientName}
               />
             </section>
 
           </section>
         </div>
         {
-          screen == true ? (
-            <TicketView
-              screen={screen}
-              setScreen={setScreen}
-              packagesProduct={packagesProduct}
-              clientName={clientName}
-              finishOrder={finishOrder}
-              success={success}
-            />) : null
-        }
+        modalOrder ? (<Modal
+          isOpen={modalOrder}
+          style={customStyles}
+        >
+          <ModalOrder/>
+        </Modal>) : null
+      }
       </div>
 
       {
-        modalIsOpen ? (<Modal
-          isOpen={modalIsOpen}
+        modalProduct ? (<Modal
+          isOpen={modalProduct}
           style={customStyles}
         >
           <ModalProduct/>

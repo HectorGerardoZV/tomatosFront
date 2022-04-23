@@ -1,0 +1,75 @@
+.modalOrderInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 0rem 3rem;
+
+}
+
+.modalOrderInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.inputLabelOrder {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.inputLabelOrder p {
+    font-size: 2rem;
+    color: var(--color-gray);
+}
+
+.inputLabelOrder input {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    background-color: var(--color-back);
+    border-radius: 1rem;
+    outline: none;
+    text-align: end;
+    font-size: 2rem;
+    color: var(--color-green);
+}
+
+.imgModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.optionModalInfo {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+}
+
+.optionModalInfo button {
+    width: 18rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+
+.optionModalInfo button.cancel {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.optionModalInfo button.finish {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

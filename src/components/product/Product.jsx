@@ -2,9 +2,9 @@ import useOrder from "../../context/order/useOrder";
 
 import "./product.css"
 const Product = (props) => {
-  const { handleChangeModal, modalIsOpen, handleAddCurrentProduct } = useOrder();
+  const { handleChangeModal, modalProduct, handleAddCurrentProduct } = useOrder();
 
-  const { product, addProductToList } = props;
+  const { product } = props;
   const { image, name, salePrice } = product;
 
   const addProduct = () => {
@@ -12,7 +12,7 @@ const Product = (props) => {
     toggleModal();
   }
   const toggleModal = () => {
-    handleChangeModal(!modalIsOpen)
+    handleChangeModal(!modalProduct)
   }
   return (
     <div className="product"

@@ -1,35 +1,104 @@
 import { useState, useEffect, createContext } from "react";
 const OrderConext = createContext();
+import  axiosClient from "../../config/axiosClient";
 
 
 
 const OrderProvider = ({ children }) => {
     const [order, setOrder] = useState([]);
     const [product, setProduct] = useState({})
-    const [modalIsOpen, setIsOpen] = useState(false);
+    const [modalProduct, setModalProduct] = useState(false);
+    const [modalOrder, setModalOrder] = useState(false);
+    const [clientName, setClientName] = useState("");
+    const [orderFinished, setOrderFinished] = useState(false);
+    const [total, setTotal] = useState(0)
 
     const handleChangeModal = () => {
-        setIsOpen(!modalIsOpen);
+        setModalProduct(!modalProduct);
+    }
+    const handleChangeModalOrder = () => {
+        setModalOrder(!modalOrder);
     }
     const handleAddProductOrder = (product) => {
         setOrder([...order, product])
+        setTotal(total + (product.salePrice * product.quantity))
     }
-    const handleAddCurrentProduct = (productItem)=>{
+    const handleAddCurrentProduct = (productItem) => {
         setProduct(productItem)
     }
-    const handleDeleteCurrentProduct = ()=>{
+    const handleUptadeQuantityProduct = (idProduct, action) => {
+        let newOrder = [];
+        if (action === "+") {
+            newOrder = order.map(product => {
+                if (product.id === idProduct) {
+                    product.quantity = product.quantity += 1;
+                }
+                return product
+            })
+        } else if (action == "-") {
+            newOrder = order.map(product => {
+                if (product.id === idProduct) {
+                    product.quantity = product.quantity -= 1;
+                }
+
+                return product
+            })
+            newOrder = newOrder.filter(product => product.quantity > 0);
+        }
+        let total = 0;
+        newOrder.forEach(productItem => {
+            total += productItem.salePrice * productItem.quantity
+        })
+        setTotal(total);
+        setOrder(newOrder)
+    }
+    const handleDeleteCurrentProduct = () => {
         setProduct({})
     }
+    const handleSetClientName = (name) => {
+        setClientName(name)
+    }
+    const handleFinishOrder = () => {
+        setOrderFinished(!orderFinished)
+    }
+    const handleResetOrderState = ()=>{
+        setModalOrder(false)
+        setOrderFinished(false);
+        setOrder([]);
+        setProduct({});
+        setClientName("");
+        setTotal(0);
+
+    }
+
+    const createNewOrder = async()=>{
+        try {
+            const response = await axiosClient.post("/orders")
+        } catch (error) {
+            
+        }
+    }
+
     return (
         <OrderConext.Provider
             value={{
-                order, 
-                modalIsOpen,
+                order,
+                modalProduct,
+                modalOrder,
                 product,
+                clientName,
+                orderFinished,
+                total,
                 handleAddProductOrder,
                 handleChangeModal,
                 handleAddCurrentProduct,
-                handleDeleteCurrentProduct
+                handleDeleteCurrentProduct,
+                handleUptadeQuantityProduct,
+                handleSetClientName,
+                handleChangeModalOrder,
+                handleFinishOrder,
+                createNewOrder,
+                handleResetOrderState
             }}
         >
             {children}

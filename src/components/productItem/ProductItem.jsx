@@ -1,25 +1,17 @@
 import plus from "../../img/plus.svg";
 import less from "../../img/less.svg";
+import useOrder from "../../context/order/useOrder";
 import "./productItem.css"
 
 const ProductItem = (props) => {
-    const { packageItem, addQuantityPackage, remuvePackage } = props;
-    const { quantity } = packageItem;
-    const { name, image } = packageItem.product;
+    const { handleUptadeQuantityProduct } = useOrder()
+    const { product } = props;
+    const { quantity, name, image } = product;
     const plusQuantity = () => {
-
-        packageItem.quantity += 1
-        addQuantityPackage(packageItem)
+        handleUptadeQuantityProduct(product.id, "+")
     }
     const lessQuantity = () => {
-        if (packageItem.quantity > 0) {
-            packageItem.quantity -= 1
-            addQuantityPackage(packageItem)
-
-            if (packageItem.quantity == 0) {
-                remuvePackage(packageItem)
-            }
-        }
+        handleUptadeQuantityProduct(product.id, "-")
 
     }
     return (

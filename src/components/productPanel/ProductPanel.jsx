@@ -4,7 +4,7 @@ import hamburguesa from "../../img/products/hamburguesa.png";
 import Product from "../product/Product";
 
 const ProductPanel = (props) => {
-    let {products,addProductToList} = props;
+    let {products} = props;
     products = products.map(product=>{
         product.image = hamburguesa;
         return product;
@@ -16,7 +16,6 @@ const ProductPanel = (props) => {
                     <Product
                         key={product.id}
                         product={product}
-                        addProductToList={addProductToList}
                         
                     />
                 ))

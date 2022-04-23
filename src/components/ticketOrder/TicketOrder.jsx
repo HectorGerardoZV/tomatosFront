@@ -1,17 +1,18 @@
+import useOrder from "../../context/order/useOrder";
 import "./ticketOrder.css";
 import ProductItem from "../productItem/ProductItem";
 const TicketOrder = (props) => {
-    const { screen, setScreen, addQuantityPackage, packagesProduct, remuvePackage,clientName,setClientName } = props;
+    const { screen, setScreen } = props;
+    const {order, clientName, handleSetClientName,handleChangeModalOrder} = useOrder()
 
-
-    const packagesReverse = [...packagesProduct].reverse()
+    const packagesReverse = [...order].reverse()
     
     const writeClientName = (e) => {
-        setClientName(e.target.value)
+        handleSetClientName(e.target.value)
     }
     const toggleScreen = () => {
         if (clientName.length > 2 && packagesReverse.length > 0) {
-            setScreen(!screen)
+            handleChangeModalOrder()
         }
 
     }
@@ -23,13 +24,10 @@ const TicketOrder = (props) => {
             <div className="line"></div>
             <div id="listProducts" className="listProducts">
                 {
-                    packagesReverse.map(packageItem => (
+                    packagesReverse.map(product => (
                         <ProductItem
-                            key={packageItem.productId}
-                            packageItem={packageItem}
-                            addQuantityPackage={addQuantityPackage}
-                            remuvePackage={remuvePackage}
-                            
+                            key={product.id}
+                            product={product}
                         />
                     ))
                 }
