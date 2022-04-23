@@ -49,7 +49,7 @@ const PanelOrders = (props) => {
         if (clientName.trim() === "") {
             ordersClient = [...orders]
         } else {
-            ordersClient = orders.filter(order => 
+            ordersClient = orders.filter(order =>
                 order.client.trim().toLowerCase().includes(clientName.trim().toLowerCase()));
         }
 
@@ -101,11 +101,15 @@ const PanelOrders = (props) => {
                         </form>
                     </div>
                     <div>
-                        <OrderList
-                            orders={ordesByclient}
-                            setOrder={setOrder}
-                            state={state}
-                        />
+                        {
+                            ordesByclient.length === 0 ? (<h1 className="titlePanelOrders">No hay ordenes</h1>) : (
+                                <OrderList
+                                    orders={ordesByclient}
+                                    setOrder={setOrder}
+                                    state={state}
+                                />
+                            )
+                        }
                     </div>
                 </div>
                 {
