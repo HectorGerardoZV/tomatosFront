@@ -3,7 +3,6 @@ const OrderConext = createContext();
 import  axiosClient from "../../config/axiosClient";
 
 
-
 const OrderProvider = ({ children }) => {
     const [order, setOrder] = useState([]);
     const [product, setProduct] = useState({})
@@ -20,7 +19,11 @@ const OrderProvider = ({ children }) => {
         setModalOrder(!modalOrder);
     }
     const handleAddProductOrder = (product) => {
-        setOrder([...order, product])
+        const productFinaly = {
+            ...product,
+            total: product.salePrice*product.quantity
+        }
+        setOrder([...order, productFinaly])
         setTotal(total + (product.salePrice * product.quantity))
     }
     const handleAddCurrentProduct = (productItem) => {
@@ -32,6 +35,7 @@ const OrderProvider = ({ children }) => {
             newOrder = order.map(product => {
                 if (product.id === idProduct) {
                     product.quantity = product.quantity += 1;
+                    product.total = product.quantity*product.salePrice;
                 }
                 return product
             })
@@ -39,6 +43,7 @@ const OrderProvider = ({ children }) => {
             newOrder = order.map(product => {
                 if (product.id === idProduct) {
                     product.quantity = product.quantity -= 1;
+                    product.total = product.quantity*product.salePrice;
                 }
 
                 return product
@@ -73,9 +78,17 @@ const OrderProvider = ({ children }) => {
 
     const createNewOrder = async()=>{
         try {
-            const response = await axiosClient.post("/orders")
-        } catch (error) {
             
+            const finalyOrder = [
+                {
+                    user:2,
+                    client: clientName,
+                    total
+                },
+                order
+            ]
+            const response = await axiosClient.post("/orders",finalyOrder)
+        } catch (error) {
         }
     }
 
