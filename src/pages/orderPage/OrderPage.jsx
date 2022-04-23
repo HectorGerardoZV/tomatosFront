@@ -7,7 +7,6 @@ import useOrder from "../../context/order/useOrder"
 import HeaderGeneric from "../../components/headerGeneric/HeaderGeneric"
 import ProductPanel from "../../components/productPanel/ProductPanel"
 import TicketOrder from "../../components/ticketOrder/TicketOrder"
-import TicketView from "../../components/ticketView/TicketView"
 import axiosClient from "../../config/axiosClient";
 import ModalProduct from "../../components/modalProduct/ModalProduct"
 //Style
@@ -34,13 +33,9 @@ const OrderPage = () => {
 
   //State
   const [screen, setScreen] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [productsCategory, setFilters] = useState([]);
-  const [packagesProduct, setPackages] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [clientName, setClientName] = useState("");
 
   const queryAllCategories = async () => {
     try {
@@ -74,47 +69,9 @@ const OrderPage = () => {
     }
   }
 
-  const addProductToList = (product) => {
-    const packageAux = {
-      product: product,
-      productId: product.id,
-      quantity: 1
-    }
 
-    const packagesFilters = packagesProduct.filter(packageIter => packageIter.productId == packageAux.productId)
-    if (packagesFilters.length == 0) {
-      setTotal(total + packageAux.product.salePrice)
+ 
 
-      setPackages([...packagesProduct, packageAux])
-
-    }
-  }
-
-  const addQuantityPackage = (packageItem) => {
-    const productsSeletedCopy = packagesProduct.map(packageIter =>
-      packageIter.productId == packageItem.productId ? packageItem : packageIter)
-    setPackages(productsSeletedCopy)
-  }
-
-  const remuvePackage = (packageItem) => {
-    const arrayPackages = packagesProduct.filter(packageAux => packageAux.productId != packageItem.productId);
-    setPackages(arrayPackages)
-  }
-
-  const finishOrder = async (order) => {
-    try {
-      const response = await axiosClient.post("/orders", order)
-      console.log(response.data);
-      setSuccess(!success)
-      setTimeout(() => {
-        setScreen(false)
-        setSuccess(false)
-        navigate("/cajero")
-      }, 1500);
-    } catch (error) {
-      navigate("/cajero")
-    }
-  }
 
   const toggleModal = () => {
     setIsOpen(!modalIsOpen);
