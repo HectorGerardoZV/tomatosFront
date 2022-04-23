@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import Modal from "react-modal"
+import useOrder from "../../context/order/useOrder"
 
 //Components
 import HeaderGeneric from "../../components/headerGeneric/HeaderGeneric"
@@ -7,23 +9,36 @@ import ProductPanel from "../../components/productPanel/ProductPanel"
 import TicketOrder from "../../components/ticketOrder/TicketOrder"
 import TicketView from "../../components/ticketView/TicketView"
 import axiosClient from "../../config/axiosClient";
+import ModalProduct from "../../components/modalProduct/ModalProduct"
 //Style
 import "./orderPage.css"
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    border:"none",
+    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+    borderRadius: "1rem",
+  },
+};
+Modal.setAppElement('#root');
 
 const OrderPage = () => {
   let navigate = useNavigate();
+  const {modalIsOpen} =useOrder();
+
   //State
   const [screen, setScreen] = useState(false);
   const [success, setSuccess] = useState(false);
-
-
-
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [productsCategory, setFilters] = useState([]);
   const [packagesProduct, setPackages] = useState([]);
   const [total, setTotal] = useState(0);
-
   const [clientName, setClientName] = useState("");
 
   const queryAllCategories = async () => {
@@ -100,6 +115,10 @@ const OrderPage = () => {
     }
   }
 
+  const toggleModal = () => {
+    setIsOpen(!modalIsOpen);
+  }
+
   useEffect(() => {
     queryAllCategories()
     queryAllProducts()
@@ -113,7 +132,10 @@ const OrderPage = () => {
     <>
       <div className="screen">
         <div>
-          <HeaderGeneric />
+          <HeaderGeneric
+
+            onClick={toggleModal}
+          />
 
           <section className="containerOrderPage">
             <div className="controls">
@@ -168,6 +190,15 @@ const OrderPage = () => {
             />) : null
         }
       </div>
+
+      {
+        modalIsOpen ? (<Modal
+          isOpen={modalIsOpen}
+          style={customStyles}
+        >
+          <ModalProduct/>
+        </Modal>) : null
+      }
     </>
 
   )

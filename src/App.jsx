@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 //Context
 import PanelOrderState from "./context/panelOrder/PanelOrderState"
-
+import { OrderProvider } from "./context/order/OrderProvider"
 
 //Pages
 import Login from "./pages/login/Login"
@@ -15,21 +15,23 @@ import ViewOrder from "./pages/viewOrder/ViewOrder"
 function App() {
 
   return (
-    <PanelOrderState>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/cajero" element={<Principal />}>
-            <Route index element={<OrderStates />} />
-            <Route path="panelorders/:state" element={<PanelOrders />} />
-          </Route>
-          <Route path="/addOrder" element={<OrderPage />} />
-          {/* <Route path="/editOrder" element={<OrderPage />} /> */}
-          <Route path="/viewOrder" element={<ViewOrder />} />
+    <OrderProvider>
+      <PanelOrderState>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/cajero" element={<Principal />}>
+              <Route index element={<OrderStates />} />
+              <Route path="panelorders/:state" element={<PanelOrders />} />
+            </Route>
+            <Route path="/addOrder" element={<OrderPage />} />
+            {/* <Route path="/editOrder" element={<OrderPage />} /> */}
+            <Route path="/viewOrder" element={<ViewOrder />} />
 
-        </Routes>
-      </Router >
-    </PanelOrderState>
+          </Routes>
+        </Router >
+      </PanelOrderState>
+    </OrderProvider>
   )
 }
 

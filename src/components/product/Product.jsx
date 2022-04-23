@@ -1,14 +1,22 @@
+import useOrder from "../../context/order/useOrder";
+
 import "./product.css"
 const Product = (props) => {
-  const { product,addProductToList } = props;
+  const { handleChangeModal, modalIsOpen, handleAddCurrentProduct } = useOrder();
+
+  const { product, addProductToList } = props;
   const { image, name, salePrice } = product;
 
-  const addProduct=()=>{
-    addProductToList(product)
+  const addProduct = () => {
+    handleAddCurrentProduct(product)
+    toggleModal();
+  }
+  const toggleModal = () => {
+    handleChangeModal(!modalIsOpen)
   }
   return (
     <div className="product"
-      onClick={addProduct }
+      onClick={addProduct}
     >
       <img className="product__img" src={image} alt="image product" />
       <p className="product__name">{name}</p>
