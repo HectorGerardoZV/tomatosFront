@@ -24,7 +24,7 @@ const Order = (props) => {
   const { setOrderEdit, deleteOrderEdit } = panelOrdersCT
 
 
-  const { client, total, packageProducts, setOrderAction } = order;
+  const { client, total, packageProducts } = order;
   let borderStyle = "";
   let clientIcon = null;
   let quantityIcon = null;

@@ -12,7 +12,6 @@ const OrderList = (props) => {
             order={order}
             setOrder={setOrder}
             state={state}
-            setOrderAction={setOrderAction}
           />
         ))
       }

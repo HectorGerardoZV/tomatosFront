@@ -18,8 +18,9 @@ const PanelOrders = (props) => {
     let { state } = useParams();
 
     const [orders, setOrders] = useState([]);
+    const [ordesByclient, setOrdersClient] = useState([]);
     const [orderSelected, setOrder] = useState(null);
-    const [orderAction, setOrderAction] = useState(null);
+    const [clientName, setClientName] = useState("");
 
 
     const queryOrdersByState = async () => {
@@ -27,15 +28,44 @@ const PanelOrders = (props) => {
             const response = await axiosClient.get(`/orders/state/${state}`);
             const ordersJson = response.data;
             setOrders(ordersJson);
+
+            if (clientName.trim() === "") {
+                setOrdersClient(ordersJson)
+            } else {
+                setOrdersClient(orders.filter(order => order.client == clientName));
+            }
+
+
         } catch (error) {
             navigate("/cajero");
         }
     }
+    const handleInputClient = (e) => {
+        setClientName(e.target.value)
+    }
+    const handleSubmitClientName = (e) => {
+        e.preventDefault();
+        let ordersClient = []
+        if (clientName.trim() === "") {
+            ordersClient = [...orders]
+        } else {
+            ordersClient = orders.filter(order => 
+                order.client.trim().toLowerCase().includes(clientName.trim().toLowerCase()));
+        }
+
+
+        setOrdersClient(ordersClient);
+    }
+
+
+
 
 
     useEffect(() => {
         queryOrdersByState();
     }, []);
+
+
 
 
 
@@ -53,24 +83,28 @@ const PanelOrders = (props) => {
                         </button>
 
 
-                        <form action="" className='form'>
+                        <form action="" className='form'
+                            onSubmit={handleSubmitClientName}
+                        >
                             <div className="input">
-                                <input type="text" placeholder='Buscar Orden' />
+                                <input type="text" placeholder='Buscar Orden'
+                                    name="client"
+                                    defaultValue={clientName}
+                                    onInput={handleInputClient}
+                                />
                             </div>
                             <div className="btn-submit">
                                 <button title='submit'>
                                     <img src={search} alt="Buscador" />
                                 </button>
-                                {/* <input type="submit" value={"Buscar"} /> */}
                             </div>
                         </form>
                     </div>
                     <div>
                         <OrderList
-                            orders={orders}
+                            orders={ordesByclient}
                             setOrder={setOrder}
                             state={state}
-                            setOrderAction={setOrderAction}
                         />
                     </div>
                 </div>
