@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 const OrderConext = createContext();
-import  axiosClient from "../../config/axiosClient";
+import axiosClient from "../../config/axiosClient";
 
 
 const OrderProvider = ({ children }) => {
@@ -10,7 +10,9 @@ const OrderProvider = ({ children }) => {
     const [modalOrder, setModalOrder] = useState(false);
     const [clientName, setClientName] = useState("");
     const [orderFinished, setOrderFinished] = useState(false);
-    const [total, setTotal] = useState(0)
+    const [total, setTotal] = useState(0);
+    const [clientNameOk, setClientNameOk] = useState(false);
+
 
     const handleChangeModal = () => {
         setModalProduct(!modalProduct);
@@ -21,7 +23,7 @@ const OrderProvider = ({ children }) => {
     const handleAddProductOrder = (product) => {
         const productFinaly = {
             ...product,
-            total: product.salePrice*product.quantity
+            total: product.salePrice * product.quantity
         }
         setOrder([...order, productFinaly])
         setTotal(total + (product.salePrice * product.quantity))
@@ -35,7 +37,7 @@ const OrderProvider = ({ children }) => {
             newOrder = order.map(product => {
                 if (product.id === idProduct) {
                     product.quantity = product.quantity += 1;
-                    product.total = product.quantity*product.salePrice;
+                    product.total = product.quantity * product.salePrice;
                 }
                 return product
             })
@@ -43,7 +45,7 @@ const OrderProvider = ({ children }) => {
             newOrder = order.map(product => {
                 if (product.id === idProduct) {
                     product.quantity = product.quantity -= 1;
-                    product.total = product.quantity*product.salePrice;
+                    product.total = product.quantity * product.salePrice;
                 }
 
                 return product
@@ -66,7 +68,7 @@ const OrderProvider = ({ children }) => {
     const handleFinishOrder = () => {
         setOrderFinished(!orderFinished)
     }
-    const handleResetOrderState = ()=>{
+    const handleResetOrderState = () => {
         setModalOrder(false)
         setOrderFinished(false);
         setOrder([]);
@@ -75,19 +77,27 @@ const OrderProvider = ({ children }) => {
         setTotal(0);
 
     }
+    const handleValidateClientName = () => {
+        const letters = /^[a-zA-Z\s]*$/;
+        if (letters.test(clientName)) {
+            setClientNameOk(true)
+        } else {
+            setClientNameOk(false)
+        }
+    }
 
-    const createNewOrder = async()=>{
+    const createNewOrder = async () => {
         try {
-            
+
             const finalyOrder = [
                 {
-                    user:2,
+                    user: 2,
                     client: clientName,
                     total
                 },
                 order
             ]
-            const response = await axiosClient.post("/orders",finalyOrder)
+            const response = await axiosClient.post("/orders", finalyOrder)
         } catch (error) {
         }
     }
@@ -102,6 +112,7 @@ const OrderProvider = ({ children }) => {
                 clientName,
                 orderFinished,
                 total,
+                clientNameOk,
                 handleAddProductOrder,
                 handleChangeModal,
                 handleAddCurrentProduct,
@@ -111,7 +122,8 @@ const OrderProvider = ({ children }) => {
                 handleChangeModalOrder,
                 handleFinishOrder,
                 createNewOrder,
-                handleResetOrderState
+                handleResetOrderState,
+                handleValidateClientName
             }}
         >
             {children}

@@ -29,7 +29,7 @@ Modal.setAppElement('#root');
 
 const OrderPage = () => {
   let navigate = useNavigate();
-  const {modalProduct,modalOrder} =useOrder();
+  const {modalProduct,modalOrder,handleResetOrderState} =useOrder();
 
   //State
   const [screen, setScreen] = useState(false);
@@ -70,19 +70,13 @@ const OrderPage = () => {
   }
 
 
- 
-
-
-  const toggleModal = () => {
-    setIsOpen(!modalIsOpen);
-  }
-
   useEffect(() => {
     queryAllCategories()
     queryAllProducts()
   }, []);
 
   const backTo = () => {
+    handleResetOrderState();
     navigate("/cajero")
   }
 
@@ -90,10 +84,7 @@ const OrderPage = () => {
     <>
       <div className="screen">
         <div>
-          <HeaderGeneric
-
-            onClick={toggleModal}
-          />
+          <HeaderGeneric />
 
           <section className="containerOrderPage">
             <div className="controls">

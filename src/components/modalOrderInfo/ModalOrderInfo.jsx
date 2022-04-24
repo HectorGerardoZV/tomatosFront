@@ -4,8 +4,8 @@ import useOrder from "../../context/order/useOrder";
 import "./ModalOrderInfo.css"
 const ModalOrderInfo = () => {
 
-    const { order, handleChangeModalOrder, total, handleFinishOrder,createNewOrder } = useOrder()
-    const [pay, setPay] = useState(0);
+    const { handleChangeModalOrder, total, handleFinishOrder,createNewOrder } = useOrder()
+    const [setPay] = useState(0);
     const [cambio, setCambio] = useState("");
 
 

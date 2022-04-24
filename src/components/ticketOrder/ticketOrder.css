@@ -66,7 +66,9 @@
     animation-name: buttonDesibledAnimate;
     animation-duration: .5s;
 }
-
+.badName{
+    color: var(--color-red);
+}
 @keyframes buttonDesibledAnimate {
     0%{
         background-color: var(--color-red);
@@ -84,3 +86,5 @@
         background-color: var(--color-red);
     }
 }
+
+
