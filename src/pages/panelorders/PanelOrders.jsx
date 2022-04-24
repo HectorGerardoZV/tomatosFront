@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { useContext } from "react";
 //components
 import axiosClient from "../../config/axiosClient";
 import OrderList from '../../components/panelOrders/OrderList';
+import panelOrderContext from "../../context/panelOrder/panelOrderContext";
 
 //images and icons
 import back from '../../img/back.svg';
@@ -13,9 +14,12 @@ import search from '../../img/search.svg';
 import "./panelOrders.css";
 import StateScreen from "../../components/stateScreen/StateScreen";
 
+
 const PanelOrders = (props) => {
     let navigate = useNavigate();
     let { state } = useParams();
+    const panelOrderCTX = useContext(panelOrderContext);
+    const { deleteOrderEdit } = panelOrderCTX;
 
     const [orders, setOrders] = useState([]);
     const [ordesByclient, setOrdersClient] = useState([]);
@@ -53,7 +57,7 @@ const PanelOrders = (props) => {
                 order.client.trim().toLowerCase().includes(clientName.trim().toLowerCase()));
         }
 
-
+        deleteOrderEdit();
         setOrdersClient(ordersClient);
     }
 
@@ -70,6 +74,7 @@ const PanelOrders = (props) => {
 
 
     const backTo = () => {
+        deleteOrderEdit();
         navigate("/cajero");
     }
 

@@ -51,7 +51,6 @@ const OrderPage = () => {
     try {
       const response = await axiosClient.get("/products");
       const arrayDatos = response.data
-      console.log(arrayDatos);
       setProducts(arrayDatos)
     } catch (error) {
 

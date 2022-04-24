@@ -13,7 +13,6 @@ import OrderStates from "./pages/orderStates/OrderStates"
 import ViewOrder from "./pages/viewOrder/ViewOrder"
 
 function App() {
-
   return (
     <OrderProvider>
       <PanelOrderState>
