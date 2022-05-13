@@ -1,7 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
 
-
 // style
 import "./login.css";
 
@@ -12,9 +11,7 @@ import logoBig from "../../img/logoBig.svg";
 import pizza from "../../img/pizza.svg";
 
 const Login = () => {
-
   let navigate = useNavigate();
-
   function handleSubmit(e){
     e.preventDefault();
     navigate("/cajero")    

@@ -1,0 +1,28 @@
+.adminPageStyle{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.itemStatus{
+    background-color: var(--color-white);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 3rem;
+}
+.itemStatus h2,p{
+    color: var(--color-gray);
+}
+.itemStatus h2{
+    font-size: 2rem;
+}
+.itemStatus p{
+    font-size: 3rem;
+}
