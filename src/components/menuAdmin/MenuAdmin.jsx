@@ -19,7 +19,7 @@ const MenuAdmin = () => {
 
     <div className="menuOptions">
         <div className="option">
-            <Link to={"/admin"}>Productos</Link>
+            <Link to={"/admin/products"}>Productos</Link>
         </div>
        
         <div className="option">

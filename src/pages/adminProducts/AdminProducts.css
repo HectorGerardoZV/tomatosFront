@@ -1,0 +1,70 @@
+.controlls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 3rem;
+}
+
+.filtersProducts{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.filtersProducts input{
+    width: 30rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: var(--color-input-screen);
+    outline: none;
+    color: var(--color-gray);
+}
+
+.filtersProducts select{
+    width: 20rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: var(--color-input-screen);
+    outline: none;
+    color: var(--color-gray);
+}
+
+.controll__add{
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.controll__add img{
+    width: 4rem;
+
+}
+
+
+.panelProduct{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    height: 40rem;
+    overflow-y: scroll;
+    padding: 3rem;
+}
+
+.panelProduct::-webkit-scrollbar{
+    background-color: rgb(241, 241, 241);
+    border-radius: 1rem;
+}
+
+.panelProduct::-webkit-scrollbar-thumb {
+    background-color: var(--color-red);    /* color of the scroll thumb */
+    border-radius: 1rem;
+    height: 3rem;
+    width: 1rem;
+}

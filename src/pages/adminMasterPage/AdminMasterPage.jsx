@@ -6,19 +6,16 @@ import "./AdminMasterPage.css"
 const AdminMasterPage = () => {
   return (
     <main>
-      <>
-        <div>
-          <Header />
-          <section className="container layoutPrincipal">
-            <MenuAdmin
-            />
-            <div className="adminPanel">
-              <Outlet />
-            </div>
-          </section>
-        </div>
-      </>
-
+      <div>
+        <Header />
+        <section className="container layoutPrincipal">
+          <MenuAdmin
+          />
+          <div className="adminPanel">
+            <Outlet />
+          </div>
+        </section>
+      </div>
     </main>
   )
 }

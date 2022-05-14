@@ -14,6 +14,7 @@ import OrderStates from "./pages/orderStates/OrderStates"
 import ViewOrder from "./pages/viewOrder/ViewOrder"
 import AdminMasterPage from "./pages/adminMasterPage/AdminMasterPage"
 import AdminPage from "./pages/adminPage/AdminPage"
+import AdminProducts from "./pages/adminProducts/AdminProducts"
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
 
               <Route path="/admin" element={<AdminMasterPage />}>
                 <Route index element={<AdminPage />} />
+                <Route path="products" element={<AdminProducts />} />
               </Route>
             </Routes>
           </Router >
