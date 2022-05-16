@@ -1,8 +1,13 @@
+import useModal from "../../hooks/useModal"
+
 import ProductAdmin from "../../components/productAdmin/ProductAdmin"
 import ButtonAdd from "../../img/buttonAdd_product.svg"
 import Image from "../../img/products/hamburguesa.png"
 import "./AdminProducts.css"
 const AdminProducts = () => {
+
+
+    const { handleToggleModalAddProduct,handleToggleModalDesition } = useModal()
 
     const products = [
         { id: 1, image: Image, name: "Product #1", salePrice: 120 },
@@ -15,6 +20,11 @@ const AdminProducts = () => {
         { id: 8, image: Image, name: "Product #8", salePrice: 120 },
         { id: 9, image: Image, name: "Product #9", salePrice: 120 },
     ]
+
+    const openModalAddProduct = () => {
+        handleToggleModalDesition();
+        handleToggleModalAddProduct();
+    }
 
     return (
         <div>
@@ -30,7 +40,7 @@ const AdminProducts = () => {
 
                     </select>
                 </div>
-                <button className="controll__add">
+                <button className="controll__add" onClick={openModalAddProduct}>
                     <img src={ButtonAdd} alt="" />
                 </button>
             </div>

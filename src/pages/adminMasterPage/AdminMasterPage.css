@@ -1,3 +1,9 @@
+.adminMasterPage{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
 .adminPanel{
     background-color: var(--color-white);
     border-radius: 1rem;

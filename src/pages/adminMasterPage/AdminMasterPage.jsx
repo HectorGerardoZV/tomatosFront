@@ -1,11 +1,15 @@
 import { Outlet } from "react-router-dom"
 import Header from "../../components/header/Header"
 import MenuAdmin from "../../components/menuAdmin/MenuAdmin"
+import useModal from "../../hooks/useModal"
+import ModalDesition from "../../components/modalDesition/ModalDesition"
 
 import "./AdminMasterPage.css"
 const AdminMasterPage = () => {
+
+  const { modalDesition } = useModal()
   return (
-    <main>
+    <main className="adminMasterPage">
       <div>
         <Header />
         <section className="container layoutPrincipal">
@@ -16,6 +20,9 @@ const AdminMasterPage = () => {
           </div>
         </section>
       </div>
+      {
+        modalDesition ? (<ModalDesition />) : null
+      }
     </main>
   )
 }

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import PanelOrderState from "./context/panelOrder/PanelOrderState"
 import { OrderProvider } from "./context/order/OrderProvider"
 import { ProductProvider } from "./context/productContext/ProductContext"
+import { ModalProvider } from "./context/modalContext/ModalContext"
 
 //Pages
 import Login from "./pages/login/Login"
@@ -21,22 +22,24 @@ function App() {
     <OrderProvider>
       <PanelOrderState>
         <ProductProvider>
-          <Router>
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/cajero" element={<Principal />}>
-                <Route index element={<OrderStates />} />
-                <Route path="panelorders/:state" element={<PanelOrders />} />
-              </Route>
-              <Route path="/addOrder" element={<OrderPage />} />
-              <Route path="/viewOrder" element={<ViewOrder />} />
+          <ModalProvider>
+            <Router>
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/cajero" element={<Principal />}>
+                  <Route index element={<OrderStates />} />
+                  <Route path="panelorders/:state" element={<PanelOrders />} />
+                </Route>
+                <Route path="/addOrder" element={<OrderPage />} />
+                <Route path="/viewOrder" element={<ViewOrder />} />
 
-              <Route path="/admin" element={<AdminMasterPage />}>
-                <Route index element={<AdminPage />} />
-                <Route path="products" element={<AdminProducts />} />
-              </Route>
-            </Routes>
-          </Router >
+                <Route path="/admin" element={<AdminMasterPage />}>
+                  <Route index element={<AdminPage />} />
+                  <Route path="products" element={<AdminProducts />} />
+                </Route>
+              </Routes>
+            </Router >
+          </ModalProvider>
         </ProductProvider>
       </PanelOrderState>
     </OrderProvider>

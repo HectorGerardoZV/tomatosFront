@@ -1,0 +1,93 @@
+.modaAddProduct {
+    width: 50rem;
+    background-color: var(--color-white);
+    padding: 3rem;
+    border-radius: 1rem;
+    animation: modalAddProductAnimation;
+    animation-duration: .5s;
+}
+
+.modalAddProduct__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.modalAddProduct__form fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.form__field {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.form__field input,
+select {
+    flex: 1;
+    padding: 1rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    background-color: var(--color-input-screen);
+    color: var(--color-gray);
+    color: var(--color-green);
+}
+.form__field input{
+    text-align: end;
+}
+
+.form__field select {
+    background-color: var(--color-input-screen);
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 0rem;
+    font-size: 2rem;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.form__field label {
+    flex: 1;
+    font-size: 2rem;
+    color: var(--color-gray);
+}
+
+.buttonSubmit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.buttonSubmit input {
+    width: 80%;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-size: 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+@keyframes modalAddProductAnimation {
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
