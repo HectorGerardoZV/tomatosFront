@@ -17,7 +17,7 @@ const ProductProvider = ({ children }) => {
                 return newProduct
 
             })
-            setProducts(newProducts);
+            setProducts(newProducts.reverse());
         } catch (error) {
             setProducts([])
         }
@@ -29,7 +29,7 @@ const ProductProvider = ({ children }) => {
             const { data } = response;
             const newProduct = {...data}
             newProduct.image = IMAGE
-            setProducts([...products, newProduct])
+            setProducts([newProduct,...products])
             return true;
         } catch (error) {
             console.log(error);

@@ -21,7 +21,7 @@ const ModalDesition = () => {
       {modalStep1 ? (<ModalStep1 />) : null}
       {modalStep2 ? (<ModalStep2 />) : null}
       {modalAddProduct ? (<ModalAddProduct />) : null}
-      
+
 
     </div>
   )
