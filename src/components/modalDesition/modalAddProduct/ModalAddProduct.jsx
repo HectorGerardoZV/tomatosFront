@@ -87,7 +87,7 @@ const ModalAddProduct = () => {
                   <input id="salePrice" name="salePrice" type="number" onChange={handleOnChangeField} />
                 </div>
                 <div className="form__field">
-                  <label htmlFor="category">Categoríá</label>
+                  <label htmlFor="category">Categoría</label>
                   <select name="category" id="category" onChange={handleOnChangeField}>
                     <option value="">--Seleccione--</option>
                     {
@@ -106,9 +106,6 @@ const ModalAddProduct = () => {
           </>
         )
       }
-
-
-
     </div>
   )
 }

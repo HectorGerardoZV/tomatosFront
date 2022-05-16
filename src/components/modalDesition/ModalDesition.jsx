@@ -4,9 +4,10 @@ import ModalStep2 from "./modalStep2/ModalStep2"
 
 import "./ModalDesition.css"
 import ModalAddProduct from "./modalAddProduct/ModalAddProduct"
+import ModalEditProduct from "./modalEditProduct/ModalEditProduct"
 const ModalDesition = () => {
 
-  const { modalStep1, modalStep2, modalAddProduct, handleToggleModalDesition } = useModal()
+  const { modalStep1, modalStep2, modalAddProduct,modalUpdateProduct, handleToggleModalDesition } = useModal()
 
   const closeModalDesition = (e) => {
 
@@ -21,6 +22,7 @@ const ModalDesition = () => {
       {modalStep1 ? (<ModalStep1 />) : null}
       {modalStep2 ? (<ModalStep2 />) : null}
       {modalAddProduct ? (<ModalAddProduct />) : null}
+      {modalUpdateProduct?(<ModalEditProduct/>):null}
 
 
     </div>

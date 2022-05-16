@@ -47,6 +47,16 @@ const ProductProvider = ({ children }) => {
             return false;
         }
     }
+    const queryApiUpdateProduct = async(product)=>{
+        try {
+            await axiosClient.put(`/products/${product.id}`,product)
+            const productsUpdated = products.map(productItem=>productItem.id==product.id?product:productItem);
+            setProducts(productsUpdated)
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
     const getQuantityProducts = () => {
         return products.length;
     }
@@ -68,7 +78,8 @@ const ProductProvider = ({ children }) => {
                 getQuantityProducts,
                 queryApiAddProduct,
                 handleSetProductSelected,
-                queryApiDeleteProduct
+                queryApiDeleteProduct,
+                queryApiUpdateProduct
             }}
         >
             {children}

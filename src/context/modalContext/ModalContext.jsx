@@ -8,6 +8,7 @@ const ModalProvider = ({ children }) => {
     const [modalStep1, setModalStep1] = useState(false);
     const [modalStep2, setModalStep2] = useState(false);
     const [modalAddProduct, setModalAddProduct] = useState(false);
+    const [modalUpdateProduct, setModalUpdateProduct] = useState(false);
 
 
     const handleToggleModalDesition = () => {
@@ -15,6 +16,7 @@ const ModalProvider = ({ children }) => {
             setModalStep1(false);
             setModalStep2(false);
             setModalAddProduct(false);
+            setModalUpdateProduct(false);
         }
         setModalDesition(!modalDesition);
     }
@@ -41,6 +43,14 @@ const ModalProvider = ({ children }) => {
         }
         setModalAddProduct(!modalAddProduct);
     }
+    const handleToggleModalUpdateProduct = ()=>{
+        if(!modalAddProduct){
+            setModalStep1(false);
+            setModalStep2(false);
+
+        }
+        setModalUpdateProduct(!modalUpdateProduct);
+    }
 
     return (
         <ModalContext.Provider
@@ -49,10 +59,12 @@ const ModalProvider = ({ children }) => {
                 modalStep1,
                 modalStep2,
                 modalAddProduct,
+                modalUpdateProduct,
                 handleToggleModalStep1,
                 handleToggleModalStep2,
                 handleToggleModalDesition,
-                handleToggleModalAddProduct
+                handleToggleModalAddProduct,
+                handleToggleModalUpdateProduct
             }}
         >
             {children}

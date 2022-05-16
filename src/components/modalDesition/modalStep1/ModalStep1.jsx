@@ -3,9 +3,12 @@ import useModal from "../../../hooks/useModal"
 import "./ModalStep1.css"
 const ModalStep1 = () => {
 
-  const { handleToggleModalStep2 } = useModal()
+  const { handleToggleModalStep2, handleToggleModalUpdateProduct } = useModal()
   const openModalStep2 = () => {
     handleToggleModalStep2()
+  }
+  const opneModalEdit = () => {
+    handleToggleModalUpdateProduct();
   }
 
   return (
@@ -14,7 +17,7 @@ const ModalStep1 = () => {
 
       <div className="optionsModalStep1">
         <button className="optionRed" onClick={openModalStep2}>Eliminar</button>
-        <button className="optionOk">Editar</button>
+        <button className="optionOk" onClick={opneModalEdit}>Editar</button>
       </div>
     </div>
   )

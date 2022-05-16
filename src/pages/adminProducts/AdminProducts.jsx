@@ -27,7 +27,6 @@ const AdminProducts = () => {
                         <option value="cat2">Categoría #2</option>
                         <option value="cat3">Categoría #3</option>
                         <option value="cat4">Categoría #4</option>
-
                     </select>
                 </div>
                 <button className="controll__add" onClick={openModalAddProduct}>
