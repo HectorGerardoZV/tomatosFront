@@ -1,4 +1,5 @@
 import useModal from "../../hooks/useModal"
+import useProducts from "../../hooks/useProducts"
 
 import ProductAdmin from "../../components/productAdmin/ProductAdmin"
 import ButtonAdd from "../../img/buttonAdd_product.svg"
@@ -6,20 +7,10 @@ import Image from "../../img/products/hamburguesa.png"
 import "./AdminProducts.css"
 const AdminProducts = () => {
 
-
+    const {products} = useProducts();
     const { handleToggleModalAddProduct,handleToggleModalDesition } = useModal()
 
-    const products = [
-        { id: 1, image: Image, name: "Product #1", salePrice: 120 },
-        { id: 2, image: Image, name: "Product #2", salePrice: 120 },
-        { id: 3, image: Image, name: "Product #3", salePrice: 120 },
-        { id: 4, image: Image, name: "Product #4", salePrice: 120 },
-        { id: 5, image: Image, name: "Product #5", salePrice: 120 },
-        { id: 6, image: Image, name: "Product #6", salePrice: 120 },
-        { id: 7, image: Image, name: "Product #7", salePrice: 120 },
-        { id: 8, image: Image, name: "Product #8", salePrice: 120 },
-        { id: 9, image: Image, name: "Product #9", salePrice: 120 },
-    ]
+
 
     const openModalAddProduct = () => {
         handleToggleModalDesition();

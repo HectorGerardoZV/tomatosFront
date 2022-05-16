@@ -1,29 +1,46 @@
 import { createContext, useState, useEffect } from "react";
 const ProductContext = createContext();
 import IMAGE from "../../img/products/hamburguesa.png";
+import axiosClient from "../../config/axiosClient";
 
-const productAPI = [
-    { id: 1, img: IMAGE, name: "product1", basePrice: 100, salePrice: 200, description: "", category: 1 },
-    { id: 2, img: IMAGE, name: "product2", basePrice: 100, salePrice: 200, description: "", category: 2 },
-    { id: 3, img: IMAGE, name: "product3", basePrice: 100, salePrice: 200, description: "", category: 2 },
-    { id: 4, img: IMAGE, name: "product4", basePrice: 100, salePrice: 200, description: "", category: 3 },
-    { id: 5, img: IMAGE, name: "product5", basePrice: 100, salePrice: 200, description: "", category: 1 },
-    { id: 6, img: IMAGE, name: "product6", basePrice: 100, salePrice: 200, description: "", category: 1 },
-]
 
 const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
 
-    const queryApiGetAllProducts = () => {
+    const queryApiGetAllProducts = async () => {
         try {
-            setProducts(productAPI)
-        } catch (error) {
+            const response = await axiosClient.get("/products");
+            const { data } = response;
+            const newProducts = data.map(product => {
+                const newProduct = { ...product };
+                newProduct.image = IMAGE;
+                return newProduct
 
+            })
+            setProducts(newProducts);
+        } catch (error) {
+            setProducts([])
         }
     }
+    
+    const queryApiAddProduct = async(product)=>{
+        try {
+            const response = await axiosClient.post("/products",product);
+            const { data } = response;
+            const newProduct = {...data}
+            newProduct.image = IMAGE
+            setProducts([...products, newProduct])
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     const getQuantityProducts = () => {
         return products.length;
     }
+
 
     useEffect(() => {
         queryApiGetAllProducts();
@@ -34,7 +51,8 @@ const ProductProvider = ({ children }) => {
         <ProductContext.Provider
             value={{
                 products,
-                getQuantityProducts
+                getQuantityProducts,
+                queryApiAddProduct
             }}
         >
             {children}
