@@ -6,6 +6,7 @@ import axiosClient from "../../config/axiosClient";
 
 const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
+    const [productSelected, setProductSelected] = useState(false);
 
     const queryApiGetAllProducts = async () => {
         try {
@@ -22,23 +23,35 @@ const ProductProvider = ({ children }) => {
             setProducts([])
         }
     }
-    
-    const queryApiAddProduct = async(product)=>{
+    const queryApiAddProduct = async (product) => {
         try {
-            const response = await axiosClient.post("/products",product);
+            const response = await axiosClient.post("/products", product);
             const { data } = response;
-            const newProduct = {...data}
+            const newProduct = { ...data }
             newProduct.image = IMAGE
-            setProducts([newProduct,...products])
+            setProducts([newProduct, ...products])
             return true;
         } catch (error) {
             console.log(error);
             return false;
         }
     }
-
+    const queryApiDeleteProduct = async () => {
+        try {
+            await axiosClient.delete(`/products/${productSelected.id}`);
+            const newProducts = products.filter(product => product.id !== productSelected.id);
+            setProducts(newProducts)
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
     const getQuantityProducts = () => {
         return products.length;
+    }
+    const handleSetProductSelected = (product) => {
+        setProductSelected(product)
     }
 
 
@@ -51,8 +64,11 @@ const ProductProvider = ({ children }) => {
         <ProductContext.Provider
             value={{
                 products,
+                productSelected,
                 getQuantityProducts,
-                queryApiAddProduct
+                queryApiAddProduct,
+                handleSetProductSelected,
+                queryApiDeleteProduct
             }}
         >
             {children}

@@ -1,14 +1,17 @@
 import useModal from "../../hooks/useModal";
+import useProducts from "../../hooks/useProducts";
 import "../product/Product.css"
 import "./ProductAdmin.css"
 const ProductAdmin = (props) => {
     const { product } = props;
+    const { handleSetProductSelected } = useProducts()
     const { image, name, salePrice } = product;
     const { handleToggleModalDesition, handleToggleModalStep1 } = useModal()
 
     const openModal = () => {
-        handleToggleModalDesition()
-        handleToggleModalStep1()
+        handleSetProductSelected(product);
+        handleToggleModalDesition();
+        handleToggleModalStep1();
     }
 
     return (

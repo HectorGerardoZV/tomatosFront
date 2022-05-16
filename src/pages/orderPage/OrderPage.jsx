@@ -20,7 +20,7 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    border:"none",
+    border: "none",
     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
     borderRadius: "1rem",
   },
@@ -29,7 +29,7 @@ Modal.setAppElement('#root');
 
 const OrderPage = () => {
   let navigate = useNavigate();
-  const {modalProduct,modalOrder,handleResetOrderState} =useOrder();
+  const { modalProduct, modalOrder, handleResetOrderState } = useOrder();
 
   //State
   const [screen, setScreen] = useState(false);
@@ -86,8 +86,8 @@ const OrderPage = () => {
           <HeaderGeneric />
 
           <section className="containerOrderPage">
-            <div className="controls">
-              <select className="categories"
+            <div className="controls_products">
+              <select className="categories_product"
                 onChange={filterProducts}
               >
                 <option key={-2} value={-2}>--Ninguna--</option>
@@ -99,11 +99,13 @@ const OrderPage = () => {
                 }
               </select>
 
-              <button className="button-cancel"
-                onClick={backTo}
-              >
-                Cancelar Orden
-              </button>
+              <div className="buttonCancel__area">
+                <button className="button-cancel"
+                  onClick={backTo}
+                >
+                  Cancelar Orden
+                </button>
+              </div>
             </div>
 
             <section className="layout-orderPage">
@@ -119,13 +121,13 @@ const OrderPage = () => {
           </section>
         </div>
         {
-        modalOrder ? (<Modal
-          isOpen={modalOrder}
-          style={customStyles}
-        >
-          <ModalOrder/>
-        </Modal>) : null
-      }
+          modalOrder ? (<Modal
+            isOpen={modalOrder}
+            style={customStyles}
+          >
+            <ModalOrder />
+          </Modal>) : null
+        }
       </div>
 
       {
@@ -133,7 +135,7 @@ const OrderPage = () => {
           isOpen={modalProduct}
           style={customStyles}
         >
-          <ModalProduct/>
+          <ModalProduct />
         </Modal>) : null
       }
     </>

@@ -3,7 +3,6 @@ import useProducts from "../../hooks/useProducts"
 
 import ProductAdmin from "../../components/productAdmin/ProductAdmin"
 import ButtonAdd from "../../img/buttonAdd_product.svg"
-import Image from "../../img/products/hamburguesa.png"
 import "./AdminProducts.css"
 const AdminProducts = () => {
 
@@ -19,7 +18,7 @@ const AdminProducts = () => {
 
     return (
         <div>
-            <div className="controlls">
+            <div className="controlls_adminProducts">
                 <div className="filtersProducts">
                     <input type="text" placeholder="Nombre del producto..." />
                     <select name="category" id="">
